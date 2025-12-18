@@ -1,5 +1,6 @@
 import streamlit as st
 import random
+import streamlit.components.v1 as components # <-- ESSENCIAL PARA O ANÚNCIO
 
 # 1. Configuração da página
 st.set_page_config(page_title="Mentoria Mente Milionária - Vitor Gabriel", page_icon="💰", layout="centered")
@@ -66,6 +67,23 @@ st.markdown("""
 st.title("🚀 Mentoria Mente Milionária")
 st.subheader("Vitor Gabriel - Educação Financeira")
 
+# --- BLOCO DE ANÚNCIO (ADSTERRA CORRIGIDO) ---
+ad_code = """
+<div style="text-align:center;">
+    <script type="text/javascript">
+        atOptions = {
+            'key' : '1ebc8dbeefa60f968702e5fb7af0e964',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+        };
+    </script>
+    <script type="text/javascript" src="//www.highperformanceformat.com/1ebc8dbeefa60f968702e5fb7af0e964/invoke.js"></script>
+</div>
+"""
+components.html(ad_code, height=110)
+
 # --- VÍDEO ---
 st.video("https://www.youtube.com/watch?v=HSXcvFVtsdM")
 
@@ -112,4 +130,3 @@ with st.container():
     st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown("---")
-st.link_button("🔵 VISITAR MEU FACEBOOK", "https://www.facebook.com/profile.php?id=61553400154748")
