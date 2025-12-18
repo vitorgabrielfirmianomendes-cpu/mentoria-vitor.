@@ -57,6 +57,22 @@ with col2:
 
 st.markdown("---")
 
+# --- NOVO: CRONOGRAMA SEMANAL DO E-BOOK ---
+st.header("📅 Cronograma: Métodos Semanais")
+st.write("Veja o que você vai aprender passo a passo:")
+
+with st.container():
+    st.markdown("""
+    * **Semana 1:** 🧠 Introdução e Mentalidade Financeira (Mindset)
+    * **Semana 2:** 📑 Diagnóstico e Organização das Dívidas
+    * **Semana 3:** 💸 Criando um Orçamento e Cortando Gastos
+    * **Semana 4:** 🛡️ Reserva de Emergência e Primeiros Investimentos
+    * **Semana 5:** 📈 Escala e Multiplicação de Renda
+    * **Semana 6:** 🏁 Revisão Final e Plano de Ação para o Futuro
+    """)
+
+st.markdown("---")
+
 # --- BOTÃO GERAL DE PAGAMENTO ---
 st.header("💳 Pagar e Acessar Agora")
 st.write("Clique abaixo para ver os detalhes do pagamento único:")
@@ -74,9 +90,9 @@ st.markdown("---")
 st.link_button("🔵 MEU FACEBOOK", "https://www.facebook.com/profile.php?id=61553400154748")
 
 st.download_button(
-    label="🎁 BAIXAR E-BOOK GRÁTIS (TESTE)",
-    data="Conteúdo do brinde...",
-    file_name="brinde_vitor.txt"
+    label="🎁 BAIXAR E-BOOK GRÁTIS (INTRODUÇÃO)",
+    data="Conteúdo do brinde: Comece sua jornada aqui!",
+    file_name="Introducao_Mente_Milionaria.txt"
 )
 
 st.caption("© 2024 Vitor Gabriel - Mentoria Mente Milionária.")
