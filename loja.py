@@ -1,4 +1,5 @@
 import streamlit as st
+import random
 
 # 1. Configuração da página
 st.set_page_config(page_title="Mentoria Mente Milionária - Vitor Gabriel", page_icon="💰", layout="centered")
@@ -58,6 +59,15 @@ st.markdown("""
         margin-bottom: 10px;
         border-radius: 5px;
         font-weight: bold;
+    }
+    /* Estilo para a roleta */
+    .roleta-box {
+        background-color: rgba(255, 215, 0, 0.15); /* Fundo dourado suave */
+        border: 2px solid #FFD700; /* Borda dourada */
+        border-radius: 15px;
+        padding: 25px;
+        margin-top: 20px;
+        text-align: center;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -141,6 +151,35 @@ with st.container():
         mime="text/plain",
         use_container_width=True
     )
+
+st.markdown("---")
+
+# --- SEÇÃO DA ROLETA DA SORTE ---
+st.header("✨ Gire a Roleta e Ganhe uma Dica Milionária!")
+
+dicas_milionarias = [
+    "Dica 1: Invista em você mesmo. Conhecimento é o ativo que mais rende.",
+    "Dica 2: Faça o dinheiro trabalhar para você, não o contrário. Comece a investir hoje!",
+    "Dica 3: Economize primeiro, gaste depois. Seu futuro financeiro agradece.",
+    "Dica 4: Cerque-se de pessoas que te inspiram a crescer. Sua rede é seu patrimônio.",
+    "Dica 5: Tenha um plano claro para seu dinheiro. Orçamento é a base da riqueza.",
+    "Dica 6: Aja como se fosse impossível falhar. Sua mentalidade cria sua realidade.",
+    "Dica 7: Aprenda a dizer 'não' para gastos desnecessários. Disciplina é poder.",
+    "Dica 8: Diversifique suas fontes de renda. Nunca dependa de uma só.",
+    "Dica 9: Automatize suas economias e investimentos. Torne o processo fácil.",
+    "Dica 10: Seja paciente. A riqueza se constrói com consistência, não com velocidade."
+]
+
+with st.container():
+    st.markdown('<div class="roleta-box">', unsafe_allow_html=True)
+    st.markdown("<h3>Pronto para sua dica de ouro?</h3>", unsafe_allow_html=True)
+    
+    if st.button("🍀 GIRAR ROLETA DA SORTE 🍀", key="roleta_button"):
+        dica_sorteada = random.choice(dicas_milionarias)
+        st.success(f"**VOCÊ GANHOU!** 🎉 Aqui está sua dica milionária: \n\n {dica_sorteada}")
+        st.info("Gire novamente para outra dica!")
+    
+    st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown("---")
 
