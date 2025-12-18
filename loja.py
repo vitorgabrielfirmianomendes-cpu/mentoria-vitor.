@@ -44,7 +44,7 @@ col_pix1, col_pix2 = st.columns(2)
 with col_pix1:
     st.markdown("""
     **1. Use nossa Chave PIX:**
-    `SUA_CHAVE_AQUI` (Ex: seu e-mail ou CPF)
+    `12022298675` (Ex: seu e-mail ou CPF)
     
     **2. Valor:**
     R$ 497,00
@@ -56,7 +56,7 @@ with col_pix1:
 with col_pix2:
     st.markdown("**4. Envie o Comprovante:**")
     # Link direto para o seu WhatsApp com mensagem pronta
-    st.link_button("✅ ENVIAR COMPROVANTE AGORA", "https://wa.me/55SEUTELEFONE?text=Oi%20Vitor,%20fiz%20o%20PIX%20da%20mentoria!%20Aqui%20está%20o%20comprovante.", type="primary")
+    st.link_button("✅ ENVIAR COMPROVANTE AGORA", "https://wa.me/27996704422?text=Oi%20Vitor,%20fiz%20o%20PIX%20da%20mentoria!%20Aqui%20está%20o%20comprovante.", type="primary")
     st.caption("Após o envio, você receberá o link de acesso em até 5 minutos.")
 
 st.markdown("---")
