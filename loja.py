@@ -3,24 +3,36 @@ import streamlit as st
 # 1. Configuração da página
 st.set_page_config(page_title="Mentoria Mente Milionária - Vitor Gabriel", page_icon="💰", layout="centered")
 
-# 2. Plano de Fundo
-def add_bg_from_url():
-    img_url = "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071&auto=format&fit=crop" 
-    st.markdown(
-         f"""
-         <style>
-         .stApp {{ background-image: url("{img_url}"); background-attachment: fixed; background-size: cover; }}
-         div[data-testid="stVerticalBlock"] > div:not(:first-child) {{
-             background-color: rgba(255, 255, 255, 0.90);
-             padding: 20px; border-radius: 15px; margin-bottom: 20px;
-             box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
-         }}
-         h1, h2, h3 {{ color: #1a1a1a !important; }}
-         </style>
-         """, unsafe_allow_html=True
-     )
-
-add_bg_from_url()
+# 2. Estilização Personalizada (Fundo Escuro e Efeitos)
+st.markdown("""
+    <style>
+    .stApp {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                    url("https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071&auto=format&fit=crop");
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    [data-testid="stVerticalBlock"] > div {
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        border-radius: 15px;
+        border: 1px solid rgba(255, 215, 0, 0.3);
+        backdrop-filter: blur(10px);
+        margin-bottom: 20px;
+    }
+    h1, h2, h3, p, span {
+        color: white !important;
+    }
+    .stButton>button {
+        width: 100%;
+        border-radius: 10px;
+        height: 3em;
+        background-color: #FFD700;
+        color: black !important;
+        font-weight: bold;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
 # --- Título ---
 st.title("🚀 Mentoria Mente Milionária")
@@ -40,59 +52,46 @@ col1, col2 = st.columns(2)
 with col1:
     st.markdown("### 💎 Mentoria Premium")
     st.write("Acesso vitalício + Suporte")
-    st.subheader("R$ 100,00")
-    if st.button("PAGAR MENTORIA (PIX)"):
-        st.success("✅ CHAVE PIX: 12022298675")
-        st.info("Copie a chave acima, pague no seu banco e envie o comprovante abaixo.")
-        st.link_button("ENVIAR COMPROVANTE AGORA", "https://wa.me/27996704422?text=Fiz%20o%20PIX%20de%20100%20reais%20da%20Mentoria!")
+    st.markdown("## R$ 100,00")
+    with st.expander("PAGAR COM PIX"):
+        st.code("12022298675", language=None)
+        st.write("Nome: Vitor Gabriel Firmiano")
+        st.link_button("✅ JÁ PAGUEI! ACESSAR", "https://wa.me/27996704422?text=Fiz%20o%20PIX%20de%20100%20da%20Mentoria")
 
 with col2:
     st.markdown("### 📚 E-book Avançado")
     st.write("Guia prático da riqueza")
-    st.subheader("R$ 20,00")
-    if st.button("PAGAR E-BOOK (PIX)"):
-        st.success("✅ CHAVE PIX: 12022298675")
-        st.info("Copie a chave acima, pague no seu banco e envie o comprovante abaixo.")
-        st.link_button("ENVIAR COMPROVANTE AGORA", "https://wa.me/27996704422?text=Fiz%20o%20PIX%20de%2020%20reais%20do%20Ebook!")
+    st.markdown("## R$ 20,00")
+    with st.expander("PAGAR COM PIX"):
+        st.code("12022298675", language=None)
+        st.write("Nome: Vitor Gabriel Firmiano")
+        st.link_button("✅ JÁ PAGUEI! ACESSAR", "https://wa.me/27996704422?text=Fiz%20o%20PIX%20de%2020%20do%20Ebook")
 
 st.markdown("---")
 
-# --- NOVO: CRONOGRAMA SEMANAL DO E-BOOK ---
+# --- CRONOGRAMA ---
 st.header("📅 Cronograma: Métodos Semanais")
-st.write("Veja o que você vai aprender passo a passo:")
-
-with st.container():
-    st.markdown("""
-    * **Semana 1:** 🧠 Introdução e Mentalidade Financeira (Mindset)
-    * **Semana 2:** 📑 Diagnóstico e Organização das Dívidas
-    * **Semana 3:** 💸 Criando um Orçamento e Cortando Gastos
-    * **Semana 4:** 🛡️ Reserva de Emergência e Primeiros Investimentos
-    * **Semana 5:** 📈 Escala e Multiplicação de Renda
-    * **Semana 6:** 🏁 Revisão Final e Plano de Ação para o Futuro
-    """)
-
-st.markdown("---")
-
-# --- BOTÃO GERAL DE PAGAMENTO ---
-st.header("💳 Pagar e Acessar Agora")
-st.write("Clique abaixo para ver os detalhes do pagamento único:")
-
-with st.expander("CLIQUE AQUI PARA VER DADOS DO PIX"):
-    st.write("**Nome:** Vitor Gabriel Firmiano")
-    st.write("**Chave PIX:** `12022298675` (Celular/CPF)")
-    st.write("---")
-    st.write("Após o pagamento, você receberá o acesso imediato pelo WhatsApp.")
-    st.link_button("✅ JÁ PAGUEI! QUERO MEU ACESSO", "https://wa.me/27996704422?text=Oi%20Vitor,%20já%20realizei%20o%20pagamento%20e%20quero%20meu%20acesso!")
+st.markdown("""
+* **Semana 1:** 🧠 Introdução e Mentalidade Financeira
+* **Semana 2:** 📑 Diagnóstico e Organização
+* **Semana 3:** 💸 Orçamento e Cortes de Gastos
+* **Semana 4:** 🛡️ Reserva e Investimentos
+* **Semana 5:** 📈 Escala e Multiplicação
+* **Semana 6:** 🏁 Plano de Ação Final
+""")
 
 st.markdown("---")
 
 # --- REDES SOCIAIS E BÔNUS ---
-st.link_button("🔵 MEU FACEBOOK", "https://www.facebook.com/profile.php?id=61553400154748")
+col_fb, col_eb = st.columns(2)
+with col_fb:
+    st.link_button("🔵 MEU FACEBOOK", "https://www.facebook.com/profile.php?id=61553400154748")
 
-st.download_button(
-    label="🎁 BAIXAR E-BOOK GRÁTIS (INTRODUÇÃO)",
-    data="Conteúdo do brinde: Comece sua jornada aqui!",
-    file_name="Introducao_Mente_Milionaria.txt"
-)
+with col_eb:
+    st.download_button(
+        label="🎁 BAIXAR BRINDE GRÁTIS",
+        data="Bem-vindo à sua jornada financeira! O primeiro passo é mudar sua mente.",
+        file_name="Introducao_Mente_Milionaria.txt"
+    )
 
 st.caption("© 2024 Vitor Gabriel - Mentoria Mente Milionária.")
