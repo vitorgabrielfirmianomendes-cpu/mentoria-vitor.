@@ -1,23 +1,56 @@
 import streamlit as st
 
-# Configuração da página
+# 1. Configuração da página
 st.set_page_config(page_title="Mentoria Mente Milionária - Vitor Gabriel", page_icon="💰", layout="centered")
+
+# 2. Código para adicionar o Plano de Fundo (CSS)
+def add_bg_from_url():
+    # Aqui está o link da imagem de fundo
+    img_url = "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071&auto=format&fit=crop" 
+    
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("{img_url}");
+             background-attachment: fixed;
+             background-size: cover;
+         }}
+         
+         /* Estilização para deixar os blocos de conteúdo visíveis sobre o fundo */
+         div[data-testid="stVerticalBlock"] > div:not(:first-child) {{
+             background-color: rgba(255, 255, 255, 0.90); /* Fundo branco levemente transparente */
+             padding: 20px;
+             border-radius: 15px;
+             margin-bottom: 20px;
+             box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+         }}
+         
+         h1, h2, h3 {{
+             color: #1a1a1a !important;
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
+# Ativa o plano de fundo
+add_bg_from_url()
 
 # --- Título e Chamada Principal ---
 st.title("🚀 Domine sua Liberdade Financeira")
 st.subheader("Transforme sua mentalidade com a Mentoria de Vitor Gabriel")
 
-# --- SEÇÃO DO VÍDEO (INTERPRETAÇÃO COM IA) ---
+# --- SEÇÃO DO VÍDEO ---
 st.write("### 🎥 Assista: O Poder da Educação Financeira")
-# DICA: Quando criar seu vídeo na IA (HeyGen/D-ID), suba no YouTube e cole o link abaixo:
-video_url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
+video_url = "https://www.youtube.com/watch?v=HSXcvFVtsdM" 
 st.video(video_url)
 
 st.info("""
 **Por que aprender Educação Financeira?**
 * 🧠 **Interpretação Inteligente:** Entenda como o dinheiro funciona no mundo real.
 * 🛡️ **Segurança:** Proteja seu futuro e da sua família.
-* 🗽 **Libertade:** Pare de trabalhar pelo dinheiro e faça o dinheiro trabalhar para você.
+* 🗽 **Liberdade:** Pare de trabalhar pelo dinheiro e faça o dinheiro trabalhar para você.
 """)
 
 st.markdown("---")
