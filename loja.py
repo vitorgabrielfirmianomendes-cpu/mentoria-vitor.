@@ -62,8 +62,8 @@ st.markdown("""
     }
     /* Estilo para a roleta */
     .roleta-box {
-        background-color: rgba(255, 215, 0, 0.15); /* Fundo dourado suave */
-        border: 2px solid #FFD700; /* Borda dourada */
+        background-color: rgba(255, 215, 0, 0.15);
+        border: 2px solid #FFD700;
         border-radius: 15px;
         padding: 25px;
         margin-top: 20px;
@@ -106,19 +106,17 @@ with col2:
 
 st.markdown("---")
 
-# --- ÁREA DE BRINDE (ISCA DIGITAL) ---
+# --- ÁREA DE BRINDE (AGORA MONETIZADA COM ANÚNCIOS) ---
 st.header("🎁 Bônus: Checklist Mentalidade Milionária")
 
 with st.container():
-    # Quadro com imagem de fundo
     st.markdown("""
         <div class="area-brinde">
             <h2 style="color: #FFD700 !important; text-shadow: 2px 2px 10px #000;">7 MUDANÇAS MENTAIS</h2>
-            <p style="text-shadow: 1px 1px 5px #000;">O guia que você precisa para começar a enriquecer.</p>
+            <p style="text-shadow: 1px 1px 5px #000;">Acesse o conteúdo exclusivo agora.</p>
         </div>
     """, unsafe_allow_html=True)
     
-    # Lista visual das mudanças
     st.markdown("""
     <div class="card-mentalidade">🧠 1. De Escassez para Abundância</div>
     <div class="card-mentalidade">🛠️ 2. Foco em Soluções, Não em Problemas</div>
@@ -129,28 +127,16 @@ with st.container():
     <div class="card-mentalidade">🏃 7. Executar Mesmo com Medo</div>
     """, unsafe_allow_html=True)
 
-    # Conteúdo do arquivo de texto (Isca Bridge)
-    brinde_texto = (
-        "CHECKLIST MENTALIDADE MILIONARIA - VITOR GABRIEL\n"
-        "==============================================\n\n"
-        "1. DE ESCASSEZ PARA ABUNDANCIA: O dinheiro e resultado de valor gerado.\n"
-        "2. FOCO EM SOLUCOES: Milionarios resolvem problemas.\n"
-        "3. PENSAR NO LONGO PRAZO: Nao troque liberdade por prazer imediato.\n"
-        "4. INVESTIR EM CONHECIMENTO: Seu maior ativo e sua mente.\n"
-        "5. TRABALHAR POR VALOR: Gere impacto para ganhar mais.\n"
-        "6. RESPONSABILIDADE TOTAL: Voce e o dono dos seus resultados.\n"
-        "7. EXECUCAO COM MEDO: Nao espere o momento perfeito. Comece!\n\n"
-        "==============================================\n"
-        "QUER O METODO COMPLETO? CLIQUE NO LINK DO SITE E ADQUIRA A MENTORIA!"
-    )
-
-    st.download_button(
-        label="📥 BAIXAR CHECKLIST COMPLETO (GRÁTIS)",
-        data=brinde_texto,
-        file_name="Checklist_Mente_Milionaria.txt",
-        mime="text/plain",
+    # BOTÃO MONETIZADO: Toda vez que clicarem aqui, você ganha centavos.
+    # IMPORTANTE: Substitua o link abaixo pelo link que você gerou no EncurtaNet
+    link_encurtado = "COLE_AQUI_SEU_LINK_MONETIZADO" 
+    
+    st.link_button(
+        "📥 BAIXAR CHECKLIST COMPLETO (GRÁTIS)", 
+        link_encurtado, 
         use_container_width=True
     )
+    st.caption("⚠️ Você verá um pequeno anúncio antes do download. Isso ajuda a manter nossos conteúdos gratuitos!")
 
 st.markdown("---")
 
@@ -159,26 +145,22 @@ st.header("✨ Gire a Roleta e Ganhe uma Dica Milionária!")
 
 dicas_milionarias = [
     "Dica 1: Invista em você mesmo. Conhecimento é o ativo que mais rende.",
-    "Dica 2: Faça o dinheiro trabalhar para você, não o contrário. Comece a investir hoje!",
-    "Dica 3: Economize primeiro, gaste depois. Seu futuro financeiro agradece.",
-    "Dica 4: Cerque-se de pessoas que te inspiram a crescer. Sua rede é seu patrimônio.",
-    "Dica 5: Tenha um plano claro para seu dinheiro. Orçamento é a base da riqueza.",
-    "Dica 6: Aja como se fosse impossível falhar. Sua mentalidade cria sua realidade.",
-    "Dica 7: Aprenda a dizer 'não' para gastos desnecessários. Disciplina é poder.",
-    "Dica 8: Diversifique suas fontes de renda. Nunca dependa de uma só.",
-    "Dica 9: Automatize suas economias e investimentos. Torne o processo fácil.",
-    "Dica 10: Seja paciente. A riqueza se constrói com consistência, não com velocidade."
+    "Dica 2: Faça o dinheiro trabalhar para você, não o contrário.",
+    "Dica 3: Economize primeiro, gaste depois.",
+    "Dica 4: Cerque-se de pessoas que te inspiram a crescer.",
+    "Dica 5: Tenha um plano claro para seu dinheiro.",
+    "Dica 6: Aja como se fosse impossível falhar.",
+    "Dica 7: Aprenda a dizer 'não' para gastos desnecessários.",
+    "Dica 8: Diversifique suas fontes de renda.",
+    "Dica 9: Automatize suas economias.",
+    "Dica 10: Seja paciente. A riqueza se constrói com consistência."
 ]
 
 with st.container():
     st.markdown('<div class="roleta-box">', unsafe_allow_html=True)
-    st.markdown("<h3>Pronto para sua dica de ouro?</h3>", unsafe_allow_html=True)
-    
-    if st.button("🍀 GIRAR ROLETA DA SORTE 🍀", key="roleta_button"):
+    if st.button("🍀 GIRAR ROLETA DA SORTE 🍀"):
         dica_sorteada = random.choice(dicas_milionarias)
-        st.success(f"**VOCÊ GANHOU!** 🎉 Aqui está sua dica milionária: \n\n {dica_sorteada}")
-        st.info("Gire novamente para outra dica!")
-    
+        st.success(f"**DICA SORTEADA:** {dica_sorteada}")
     st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown("---")
