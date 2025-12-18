@@ -3,7 +3,7 @@ import streamlit as st
 # 1. Configuração da página
 st.set_page_config(page_title="Mentoria Mente Milionária - Vitor Gabriel", page_icon="💰", layout="centered")
 
-# 2. Estilização Geral (Visual 3D e Dark)
+# 2. Estilização Geral (Visual 3D, Glassmorphism e Dark)
 st.markdown("""
     <style>
     .stApp {
@@ -19,21 +19,29 @@ st.markdown("""
         border: 1px solid rgba(255, 215, 0, 0.2);
         backdrop-filter: blur(15px);
         margin-bottom: 25px;
+        box-shadow: 0px 10px 30px rgba(0,0,0,0.5);
     }
     h1, h2, h3, p, span, li {
         color: white !important;
+        font-family: 'Helvetica Neue', sans-serif;
     }
     .stButton>button {
         width: 100%;
         border-radius: 12px;
+        height: 3.5em;
         background-color: #FFD700;
         color: black !important;
         font-weight: bold;
         border: none;
+        transition: 0.3s;
     }
-    /* Estilo do fundo dentro da área de brinde */
+    .stButton>button:hover {
+        background-color: #FFF;
+        transform: scale(1.02);
+    }
+    /* Estilo da área de brinde com fundo de imagem */
     .area-brinde {
-        background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
                           url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=2071&auto=format&fit=crop');
         background-size: cover;
         background-position: center;
@@ -41,12 +49,20 @@ st.markdown("""
         border-radius: 15px;
         border: 2px solid #FFD700;
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
+    }
+    .card-mentalidade {
+        background: rgba(255, 215, 0, 0.1);
+        padding: 12px;
+        border-left: 5px solid #FFD700;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        font-weight: bold;
     }
     </style>
     """, unsafe_allow_html=True)
 
-# --- Título ---
+# --- Título e Cabeçalho ---
 st.title("🚀 Mentoria Mente Milionária")
 st.subheader("Vitor Gabriel - Educação Financeira")
 
@@ -56,17 +72,18 @@ st.video(video_url)
 
 st.markdown("---")
 
-# --- PRODUTOS ---
+# --- SEÇÃO DE PRODUTOS ---
 st.header("🛒 Escolha seu Plano")
 col1, col2 = st.columns(2)
 
 with col1:
     st.markdown("### 💎 Mentoria Premium")
-    st.write("Acesso vitalício + Suporte")
+    st.write("Acesso vitalício + Suporte VIP")
     st.markdown("## R$ 100,00")
     with st.expander("PAGAR COM PIX"):
         st.code("12022298675", language=None)
-        st.link_button("✅ JÁ PAGUEI!", "https://wa.me/27996704422?text=Fiz%20o%20PIX%20de%20100")
+        st.write("Titular: Vitor Gabriel Firmiano")
+        st.link_button("✅ JÁ PAGUEI! ACESSAR", "https://wa.me/27996704422?text=Fiz%20o%20PIX%20de%20100%20da%20Mentoria")
 
 with col2:
     st.markdown("### 📚 E-book Avançado")
@@ -74,54 +91,69 @@ with col2:
     st.markdown("## R$ 20,00")
     with st.expander("PAGAR COM PIX"):
         st.code("12022298675", language=None)
-        st.link_button("✅ JÁ PAGUEI!", "https://wa.me/27996704422?text=Fiz%20o%20PIX%20de%2020")
+        st.write("Titular: Vitor Gabriel Firmiano")
+        st.link_button("✅ JÁ PAGUEI! ACESSAR", "https://wa.me/27996704422?text=Fiz%20o%20PIX%20de%2020%20do%20Ebook")
+
+st.markdown("---")
+
+# --- ÁREA DE BRINDE (ISCA DIGITAL) ---
+st.header("🎁 Bônus: Checklist Mentalidade Milionária")
+
+with st.container():
+    # Quadro com imagem de fundo
+    st.markdown("""
+        <div class="area-brinde">
+            <h2 style="color: #FFD700 !important; text-shadow: 2px 2px 10px #000;">7 MUDANÇAS MENTAIS</h2>
+            <p style="text-shadow: 1px 1px 5px #000;">O guia que você precisa para começar a enriquecer.</p>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    # Lista visual das mudanças
+    st.markdown("""
+    <div class="card-mentalidade">🧠 1. De Escassez para Abundância</div>
+    <div class="card-mentalidade">🛠️ 2. Foco em Soluções, Não em Problemas</div>
+    <div class="card-mentalidade">⏳ 3. Pensar no Longo Prazo</div>
+    <div class="card-mentalidade">📖 4. Investir em Conhecimento</div>
+    <div class="card-mentalidade">💎 5. Trabalhar por Valor, Não por Tempo</div>
+    <div class="card-mentalidade">🎮 6. Assumir Responsabilidade Total</div>
+    <div class="card-mentalidade">🏃 7. Executar Mesmo com Medo</div>
+    """, unsafe_allow_html=True)
+
+    # Conteúdo do arquivo de texto (Isca Bridge)
+    brinde_texto = (
+        "CHECKLIST MENTALIDADE MILIONARIA - VITOR GABRIEL\n"
+        "==============================================\n\n"
+        "1. DE ESCASSEZ PARA ABUNDANCIA: O dinheiro e resultado de valor gerado.\n"
+        "2. FOCO EM SOLUCOES: Milionarios resolvem problemas.\n"
+        "3. PENSAR NO LONGO PRAZO: Nao troque liberdade por prazer imediato.\n"
+        "4. INVESTIR EM CONHECIMENTO: Seu maior ativo e sua mente.\n"
+        "5. TRABALHAR POR VALOR: Gere impacto para ganhar mais.\n"
+        "6. RESPONSABILIDADE TOTAL: Voce e o dono dos seus resultados.\n"
+        "7. EXECUCAO COM MEDO: Nao espere o momento perfeito. Comece!\n\n"
+        "==============================================\n"
+        "QUER O METODO COMPLETO? CLIQUE NO LINK DO SITE E ADQUIRA A MENTORIA!"
+    )
+
+    st.download_button(
+        label="📥 BAIXAR CHECKLIST COMPLETO (GRÁTIS)",
+        data=brinde_texto,
+        file_name="Checklist_Mente_Milionaria.txt",
+        mime="text/plain",
+        use_container_width=True
+    )
 
 st.markdown("---")
 
 # --- CRONOGRAMA ---
-st.header("📅 Cronograma Semanal")
+st.header("📅 O que você vai aprender")
 st.markdown("""
-* **Semana 1:** 🧠 Mindset Milionário
-* **Semana 2:** 📑 Organização de Dívidas
-* **Semana 3:** 💸 Orçamento Inteligente
-* **Semana 4:** 🛡️ Reserva de Emergência
-* **Semana 5:** 📈 Multiplicação de Renda
-* **Semana 6:** 🏁 Plano de Ação Final
+* **Semana 1:** Mindset Milionário | **Semana 2:** Organização de Dívidas
+* **Semana 3:** Orçamento Inteligente | **Semana 4:** Reserva de Emergência
+* **Semana 5:** Multiplicação de Renda | **Semana 6:** Plano de Ação Final
 """)
 
 st.markdown("---")
 
-# --- ÁREA DE BRINDE COM FUNDO INTERNO ---
-st.header("🎁 Bônus Gratuito")
-
-# Div HTML para criar o fundo dentro da área
-st.markdown("""
-    <div class="area-brinde">
-        <h2 style="color: #FFD700 !important; text-shadow: 2px 2px 8px #000;">CONTEÚDO EXCLUSIVO</h2>
-        <p style="font-size: 18px; text-shadow: 1px 1px 4px #000;">Baixe agora sua planilha básica e frases motivacionais.</p>
-    </div>
-    """, unsafe_allow_html=True)
-
-# Conteúdo do download
-brinde_texto = (
-    "PROJETO MENTE MILIONARIA - VITOR GABRIEL\n"
-    "==========================================\n\n"
-    "FRASES MOTIVACIONAIS:\n"
-    "1. A disciplina e a chave da liberdade.\n"
-    "2. Invista em conhecimento, rende os melhores juros.\n\n"
-    "PLANILHA BASICA 50-30-20:\n"
-    "50% Necessidades | 30% Lazer | 20% Investir\n\n"
-    "ADQUIRA O CONTEUDO COMPLETO NO SITE!"
-)
-
-st.download_button(
-    label="📥 BAIXAR BRINDE + PLANILHA AGORA",
-    data=brinde_texto,
-    file_name="Brinde_Mente_Milionaria.txt",
-    mime="text/plain",
-    use_container_width=True
-)
-
-st.markdown("---")
-st.link_button("🔵 MEU FACEBOOK", "https://www.facebook.com/profile.php?id=61553400154748")
+# --- RODAPÉ ---
+st.link_button("🔵 VISITAR MEU FACEBOOK", "https://www.facebook.com/profile.php?id=61553400154748")
 st.caption("© 2024 Vitor Gabriel - Mentoria Mente Milionária.")
