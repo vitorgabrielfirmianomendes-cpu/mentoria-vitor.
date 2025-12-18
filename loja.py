@@ -5,7 +5,6 @@ st.set_page_config(page_title="Mentoria Mente Milionária - Vitor Gabriel", page
 
 # 2. Código para adicionar o Plano de Fundo (CSS)
 def add_bg_from_url():
-    # Aqui está o link da imagem de fundo
     img_url = "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071&auto=format&fit=crop" 
     
     st.markdown(
@@ -17,9 +16,8 @@ def add_bg_from_url():
              background-size: cover;
          }}
          
-         /* Estilização para deixar os blocos de conteúdo visíveis sobre o fundo */
          div[data-testid="stVerticalBlock"] > div:not(:first-child) {{
-             background-color: rgba(255, 255, 255, 0.90); /* Fundo branco levemente transparente */
+             background-color: rgba(255, 255, 255, 0.90);
              padding: 20px;
              border-radius: 15px;
              margin-bottom: 20px;
@@ -34,7 +32,6 @@ def add_bg_from_url():
          unsafe_allow_html=True
      )
 
-# Ativa o plano de fundo
 add_bg_from_url()
 
 # --- Título e Chamada Principal ---
@@ -111,6 +108,15 @@ with col_pix1:
 with col_pix2:
     st.markdown("**Confirmação:**")
     st.link_button("✅ ENVIAR COMPROVANTE NO WHATSAPP", "https://wa.me/27996704422?text=Oi%20Vitor,%20fiz%20o%20PIX!%20Quero%20acesso%20ao%20meu%20produto.", type="primary")
+
+st.markdown("---")
+
+# --- SEÇÃO REDES SOCIAIS ---
+st.header("📱 Acompanhe meu trabalho")
+st.write("Link da minha página oficial:")
+
+# LINK EXIBIDO DIRETAMENTE NO BOTÃO
+st.link_button("facebook.com/profile.php?id=61553400154748", "https://www.facebook.com/profile.php?id=61553400154748")
 
 st.markdown("---")
 
